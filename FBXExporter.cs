@@ -8,6 +8,7 @@ using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 #endregion
 
 
@@ -120,10 +121,17 @@ namespace FBXExporter
                 progressBar.Minimum = 0;
                 progressBar.Maximum = allAlements.Count;
 
+                string regexSearch = new string(System.IO.Path.GetInvalidFileNameChars());
+
                 //Unhide each element one by one and export a view with it
                 foreach (ElementId e in allAlements)
                 {
                     ICollection<ElementId> element = new List<ElementId>() { e };
+                    string category = doc.GetElement(e).Category.Name;
+                    string famtype = doc.GetElement(e).get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsValueString();
+                    string name = String.Format("{0}-{1}-id{2}", category, famtype, e.ToString());
+                    Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+                    name = r.Replace(name, "");
 
                     using (Transaction tx = new Transaction(doc))
                     {
@@ -132,7 +140,7 @@ namespace FBXExporter
                         doc.Regenerate();
                         viewSet.Insert(activeView);
 
-                        doc.Export(folder, e.ToString(), viewSet, options);
+                        doc.Export(folder, name, viewSet, options);
 
                         activeView.HideElements(element);
                         tx.Commit();
