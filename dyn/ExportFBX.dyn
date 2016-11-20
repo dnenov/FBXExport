@@ -1,0 +1,36 @@
+<Workspace Version="1.1.0.2094" X="52" Y="-2" zoom="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="45419f55-0203-4e11-96bf-b3557c91e3ab" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="ExportFBX" x="343.5" y="421.5" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <ID value="03b321f3-31b2-4707-9718-fbfb26a04918" />
+      <Name value="ExportFBX" />
+      <Description value="Exports all elements in 3D View to separate .fbx files." />
+      <Inputs>
+        <Input value="Document" />
+      </Inputs>
+      <Outputs>
+        <Output value="Result" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <Dynamo.Graph.Nodes.CustomNodes.Function guid="19c2e7cd-5853-4771-b9fc-176b14316ea7" type="Dynamo.Graph.Nodes.CustomNodes.Function" nickname="Current Document" x="177" y="423" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <ID value="5b9b1cd5-c248-4799-b689-6b31fe525bd2" />
+      <Name value="Current Document" />
+      <Description value="Retrieves Current Document" />
+      <Inputs />
+      <Outputs>
+        <Output value="OUT" />
+      </Outputs>
+    </Dynamo.Graph.Nodes.CustomNodes.Function>
+    <CoreNodeModels.Watch guid="1fcf3329-279a-4b9f-96c5-77452b335a51" type="CoreNodeModels.Watch" nickname="Watch" x="547" y="418" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="45419f55-0203-4e11-96bf-b3557c91e3ab" start_index="0" end="1fcf3329-279a-4b9f-96c5-77452b335a51" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="19c2e7cd-5853-4771-b9fc-176b14316ea7" start_index="0" end="45419f55-0203-4e11-96bf-b3557c91e3ab" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

@@ -1,0 +1,5 @@
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\bin\Debug\Archilzier.dll
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\bin\Debug\Archilzier.pdb
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\obj\Debug\Archilzier.dll
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\obj\Debug\Archilzier.pdb
+C:\Users\adicted\Documents\Visual Studio 2013\Projects\FBXExporter\obj\Debug\Archilizer.csprojResolveAssemblyReference.cache

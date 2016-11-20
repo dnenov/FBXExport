@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>FBXExporter</Text>
+    <Description>Exports Revit geometry to separate FBX files</Description>
+    <Assembly>FBXExporter.dll</Assembly>
+    <FullClassName>FBXExporter.Command</FullClassName>
+    <ClientId>a0611543-c075-428f-9d61-4daff5042d45</ClientId>
+    <VendorId>TBC_</VendorId>
+    <VendorDescription>Archilizer www.archilizer.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>

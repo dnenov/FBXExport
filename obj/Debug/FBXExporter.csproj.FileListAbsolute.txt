@@ -1,0 +1,7 @@
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\bin\Debug\FBXExporter.dll
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\bin\Debug\FBXExporter.pdb
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\obj\Debug\FBXExporter.csprojResolveAssemblyReference.cache
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\obj\Debug\FBXExporter.dll
+c:\users\adicted\documents\visual studio 2013\Projects\FBXExporter\obj\Debug\FBXExporter.pdb
+C:\Users\adicted\Documents\Visual Studio 2013\Projects\FBXExporter\obj\Debug\FBXExporter.ProgressBarForm.resources
+C:\Users\adicted\Documents\Visual Studio 2013\Projects\FBXExporter\obj\Debug\FBXExporter.csproj.GenerateResource.Cache
