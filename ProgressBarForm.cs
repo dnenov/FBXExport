@@ -24,7 +24,11 @@ namespace FBXExporter
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
-            this.message = ExportFBX.Export(this.doc, progressBar, labelProgress);
+            buttonExport.Visible = false;
+            progressBar.Visible = true;
+            labelProgressPercent.Visible = true;
+            this.labelProgress.Text = " ..";
+            this.message = ExportFBX.Export(this.doc, progressBar, labelProgress, labelProgressPercent);
 
             if(message.Contains("Successfully"))
             {
@@ -37,6 +41,15 @@ namespace FBXExporter
                 this.Close();
             }
         }
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }
