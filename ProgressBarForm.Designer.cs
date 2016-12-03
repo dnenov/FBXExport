@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 namespace FBXExporter
 {
     partial class ProgressBarForm
@@ -70,13 +71,15 @@ namespace FBXExporter
             // labelProgress
             // 
             this.labelProgress.AutoSize = true;
+            this.labelProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelProgress.Location = new System.Drawing.Point(12, 9);
             this.labelProgress.MaximumSize = new System.Drawing.Size(400, 0);
             this.labelProgress.Name = "labelProgress";
-            this.labelProgress.Size = new System.Drawing.Size(382, 26);
+            this.labelProgress.Size = new System.Drawing.Size(339, 26);
             this.labelProgress.TabIndex = 2;
-            this.labelProgress.Text = "This process might take a while depending on the number of elements. This will ca" +
-    "use Revit to freeze while the process is being executed.";
+            this.labelProgress.Text = "This process might take a while depending on the number of elements.\r\n" +
+                "This will cause Revit to freeze while the process is being executed.\r\n" +
+                "To increase performance, hide unnecessary elements.";
             // 
             // ProgressBarForm
             // 

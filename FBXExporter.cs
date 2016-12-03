@@ -139,8 +139,14 @@ namespace FBXExporter
                         activeView.UnhideElements(element);
                         doc.Regenerate();
                         viewSet.Insert(activeView);
-
-                        doc.Export(folder, name, viewSet, options);
+                        try
+                        {
+                            doc.Export(folder, name, viewSet, options);
+                        }
+                        catch(Exception ex)
+                        {
+                            TaskDialog.Show("Error", String.Format("There has been a problem executing this script.{0}{1}", Environment.NewLine, ex.Message));
+                        }
 
                         activeView.HideElements(element);
                         tx.Commit();
