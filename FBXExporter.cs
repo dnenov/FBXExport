@@ -91,12 +91,19 @@ namespace FBXExporter
                     t.Start();
                     foreach(ElementId e in allAlements)
                     {
-                        if (doc.GetElement(e).Category.Name.Contains("Curtain") || doc.GetElement(e).Category.Name.Contains("Lines")
-                            || doc.GetElement(e).Category.Name.Contains("Top Rails") || doc.GetElement(e).Category.Name.Contains("Shaft Openings"))
+                        if (e == null) continue;
+
+                        try
                         {
-                            removedElements.Add(e);
-                            continue;
+                            if (doc.GetElement(e).Category.Name.Contains("Curtain") || doc.GetElement(e).Category.Name.Contains("Lines")
+                            || doc.GetElement(e).Category.Name.Contains("Top Rails") || doc.GetElement(e).Category.Name.Contains("Shaft Openings"))
+                            {
+                                removedElements.Add(e);
+                                continue;
+                            }
                         }
+                        catch (Exception) { }
+                        
                         ICollection<ElementId> element = new List<ElementId>() { e };
                         try
                         {
@@ -127,8 +134,12 @@ namespace FBXExporter
                 foreach (ElementId e in allAlements)
                 {
                     ICollection<ElementId> element = new List<ElementId>() { e };
-                    string category = doc.GetElement(e).Category.Name;
-                    string famtype = doc.GetElement(e).get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsValueString();
+                    if (e == null) continue;
+                    var el = doc.GetElement(e);
+                    if (el.Category == null) continue;
+                    if (el.Category.Name == null) continue;
+                    string category = el.Category.Name;
+                    string famtype = el.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsValueString();
                     string name = String.Format("{0}-{1}-id{2}", category, famtype, e.ToString());
                     Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
                     name = r.Replace(name, "");
