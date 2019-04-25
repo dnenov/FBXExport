@@ -77,3 +77,4 @@ C:\Users\dneno\source\repos\FBXExport\obj\Debug\FBXExporter.csproj.GenerateResou
 C:\Users\dneno\source\repos\FBXExport\obj\Debug\FBXExporter.csproj.CoreCompileInputs.cache
 C:\Users\dneno\source\repos\FBXExport\obj\Debug\FBXExporter.dll
 C:\Users\dneno\source\repos\FBXExport\obj\Debug\FBXExporter.pdb
+C:\Users\dneno\source\repos\FBXExport\obj\Debug\FBXExporter.csprojAssemblyReference.cache

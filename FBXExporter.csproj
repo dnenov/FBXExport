@@ -76,7 +76,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy "$(ProjectDir)FBXExporter.addin" "%25Programdata%25\Autodesk\ApplicationPlugins\FBXExporter.bundle\Content\windows"
-copy "$(ProjectDir)bin\debug\FBXExporter.bundle\FBXExporter.dll" "%25Programdata%25\Autodesk\ApplicationPlugins\FBXExporter.bundle\Content\windows"</PostBuildEvent>
+copy "$(ProjectDir)bin\debug\FBXExporter.bundle\FBXExporter.dll" "%25Programdata%25\Autodesk\ApplicationPlugins\FBXExporter.bundle\Content\windows"
+copy "$(ProjectDir)PackageContents.xml" "%25Programdata%25\Autodesk\ApplicationPlugins\FBXExporter.bundle"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>if not exist  "%25Programdata%25\Autodesk\ApplicationPlugins\FBXExporter.bundle\Content\windows" mkdir  "%25Programdata%25\Autodesk\ApplicationPlugins\FBXExporter.bundle\Content\windows"</PreBuildEvent>

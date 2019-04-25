@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage SchemaVersion="1.0" AutodeskProduct="Revit" ProductType="Application" Name="FBXExporter" AppVersion="1.0.0" Description="Batch export Geometry Elements to FBX files." Author="Archilizer" AppNameSpace="appstore.exchange.autodesk.com" ProductCode="{FA1CBE2D-449B-47DE-B671-278E3A3018AA}" UpgradeCode="{FAC8312D-C18F-4AA2-A342-71E8EA3A2E6E}  " SupportedLocales="Enu" FriendlyVersion="1.0.0" OnlineDocumentation="http://archilizer.com " HelpFile="./Content/FBX Exporter _ Revit _ Autodesk App Store.html" Icon="./Content/Resources/Icon.bmp">
+  <CompanyDetails Name="Archilizer" Phone=" " Url="http://archilizer.com " Email="support@archilizer.com " />
+  <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2015" SeriesMax="R2020" />
+  <Components Description="2015 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2015" SeriesMax="R2015" />
+    <ComponentEntry AppName="FBXExporter" Version="1.0.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
+  </Components>
+  <Components Description="2016 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2016" SeriesMax="R2016" />
+    <ComponentEntry AppName="FBXExporter" Version="1.0.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
+  </Components>
+  <Components Description="2017 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2017" SeriesMax="R2017" />
+    <ComponentEntry AppName="FBXExporter" Version="1.0.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
+  </Components>
+  <Components Description="2018 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2018" SeriesMax="R2018" />
+    <ComponentEntry AppName="FBXExporter" Version="1.0.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
+  </Components>
+  <Components Description="2019 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2019" SeriesMax="R2019" />
+    <ComponentEntry AppName="FBXExporter" Version="1.0.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
+  </Components>
+  <Components Description="2020 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2020" SeriesMax="R2020" />
+    <ComponentEntry AppName="FBXExporter" Version="1.0.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
+  </Components>
+</ApplicationPackage>
