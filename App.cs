@@ -8,20 +8,14 @@
 
 #region Namespaces
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.IO;
 using System.Windows.Media.Imaging;
-using System.Linq;
 
 using Autodesk.Revit.ApplicationServices;
-using Autodesk.Revit.Attributes;
-using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
-using Autodesk.Revit.UI.Events;
-using System.Windows.Forms;
-using System.Diagnostics;
 using System.Collections;
+using FBXExporter.Helpers;
 #endregion
 
 namespace FBXExporter
@@ -31,6 +25,9 @@ namespace FBXExporter
     /// </summary>
     class App : IExternalApplication
     {
+        private static UIControlledApplication MyApplication { get; set; }
+        private static Assembly assembly;
+
         private static object TheInternalDoingPart(UIControlledApplication CApp, string TabName, string PanelName)
         {
             IList ERPs = null;
@@ -53,7 +50,7 @@ namespace FBXExporter
             NewRevitPanel = CApp.CreateRibbonPanel(TabName, PanelName);
 
             NewOrExtgRevitPanel = NewRevitPanel;
-            FoundSoJumpPastNew:
+        FoundSoJumpPastNew:
 
             return NewOrExtgRevitPanel;
         }
@@ -106,15 +103,18 @@ namespace FBXExporter
             RibbonPanel ribbonPanel = (RibbonPanel)TheInternalDoingPart(a, tabName, panelName);
             // Get dll assembly path
             string thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
+            assembly = Assembly.GetExecutingAssembly();
 
             ContextualHelp ch = new ContextualHelp(ContextualHelpType.Url, @helpFile);
 
             CreatePushButton(ribbonPanel, string.Format("FBX{0}Exporter", Environment.NewLine), thisAssemblyPath, "FBXExporter.Command",
-                string.Format("Exports each element of a 3D view to a separate FBX file.{0}v1.0", Environment.NewLine), "FBX_Exporter.png", ch);
+                string.Format("Exports each element of a 3D view to a separate FBX file.{0}{0}v1.0", Environment.NewLine), "FBXExporter.Resources.icon_FBXExport.png", ch);
 
         }
         private static void CreatePushButton(RibbonPanel ribbonPanel, string name, string path, string command, string tooltip, string icon, ContextualHelp ch)
         {
+            BitmapIcons bitmapIcons = new BitmapIcons(assembly, icon, MyApplication);
+
             PushButtonData pbData = new PushButtonData(
                 name,
                 name,
@@ -122,16 +122,20 @@ namespace FBXExporter
                 command);
 
             PushButton pb = ribbonPanel.AddItem(pbData) as PushButton;
+
             pb.ToolTip = tooltip;
+            var largeImage = bitmapIcons.LargeBitmap();
+            var smallImage = bitmapIcons.SmallBitmap();
+            pb.LargeImage = largeImage;
+            pb.Image = smallImage;
             pb.SetContextualHelp(ch);
-            BitmapImage pb2Image = new BitmapImage(new Uri(String.Format("pack://application:,,,/FBXExporter;component/Resources/{0}", icon)));
-            pb.LargeImage = pb2Image;
         }
         #endregion
 
         public Result OnStartup(UIControlledApplication a)
         {
             ControlledApplication c_app = a.ControlledApplication;
+            MyApplication = a;
             AddRibbonPanel(a);
 
             return Result.Succeeded;
