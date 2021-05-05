@@ -36,11 +36,11 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -75,6 +75,7 @@
   <ItemGroup>
     <EmbeddedResource Include="ProgressBarForm.resx">
       <DependentUpon>ProgressBarForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

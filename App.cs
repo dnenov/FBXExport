@@ -108,7 +108,7 @@ namespace FBXExporter
             ContextualHelp ch = new ContextualHelp(ContextualHelpType.Url, @helpFile);
 
             CreatePushButton(ribbonPanel, string.Format("FBX{0}Exporter", Environment.NewLine), thisAssemblyPath, "FBXExporter.Command",
-                string.Format("Exports each element of a 3D view to a separate FBX file.{0}{0}v1.0", Environment.NewLine), "FBXExporter.Resources.icon_FBXExport.png", ch);
+                string.Format("Exports each element of a 3D view to a separate FBX file.{0}{0}v1.1.0", Environment.NewLine), "FBXExporter.Resources.icon_FBXExport.png", ch);
 
         }
         private static void CreatePushButton(RibbonPanel ribbonPanel, string name, string path, string command, string tooltip, string icon, ContextualHelp ch)
