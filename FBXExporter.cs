@@ -130,47 +130,50 @@ namespace FBXExporter
 
                 string regexSearch = new string(System.IO.Path.GetInvalidFileNameChars());
 
-                //Unhide each element one by one and export a view with it
-                foreach (ElementId e in allAlements)
+
+                try
                 {
-                    ICollection<ElementId> element = new List<ElementId>() { e };
-                    if (e == null) continue;
-                    var el = doc.GetElement(e);
-                    if (el.Category == null) continue;
-                    if (el.Category.Name == null) continue;
-                    string category = el.Category.Name;
-                    string famtype = el.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsValueString();
-                    string name = String.Format("{0}-{1}-id{2}", category, famtype, e.ToString());
-                    Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
-                    name = r.Replace(name, "");
-
-                    using (Transaction tx = new Transaction(doc))
+                    //Unhide each element one by one and export a view with it
+                    foreach (ElementId e in allAlements)
                     {
-                        tx.Start(String.Format("Export element {0}", e.ToString()));
-                        activeView.UnhideElements(element);
-                        doc.Regenerate();
-                        viewSet.Insert(activeView);
-                        try
+                        ICollection<ElementId> element = new List<ElementId>() { e };
+                        if (e == null) continue;
+                        var el = doc.GetElement(e);
+                        if (el.Category == null) continue;
+                        if (el.Category.Name == null) continue;
+                        string category = el.Category.Name;
+                        string famtype = el.get_Parameter(BuiltInParameter.ELEM_TYPE_PARAM).AsValueString();
+                        string name = String.Format("{0}-{1}-id{2}", category, famtype, e.ToString());
+                        Regex r = new Regex(string.Format("[{0}]", Regex.Escape(regexSearch)));
+                        name = r.Replace(name, "");
+
+                        using (Transaction tx = new Transaction(doc))
                         {
+                            tx.Start(String.Format("Export element {0}", e.ToString()));
+                            activeView.UnhideElements(element);
+                            doc.Regenerate();
+                            viewSet.Insert(activeView);
+
                             doc.Export(folder, name, viewSet, options);
-                        }
-                        catch(Exception ex)
-                        {
-                            TaskDialog.Show("Error", String.Format("There has been a problem executing this script.{0}{1}", Environment.NewLine, ex.Message));
+
+                            activeView.HideElements(element);
+                            tx.Commit();
                         }
 
-                        activeView.HideElements(element);
-                        tx.Commit();
+                        viewSet.Clear();
+                        progressBar.Value++;
+                        label.Text = String.Format("Exported {0} of {1}", progressBar.Value.ToString(), progressBar.Maximum.ToString());
+                        label.Refresh();
+                        percent.Text = String.Format("{0}{1}", (Convert.ToInt16((progressBar.Value / (progressBar.Maximum * 1.0)) * 100)).ToString(), "%");
+                        percent.Refresh();
+                        c++;
                     }
-
-                    viewSet.Clear();
-                    progressBar.Value++;
-                    label.Text = String.Format("Exported {0} of {1}", progressBar.Value.ToString(), progressBar.Maximum.ToString());
-                    label.Refresh();
-                    percent.Text = String.Format("{0}{1}", (Convert.ToInt16 ((progressBar.Value / (progressBar.Maximum * 1.0)) * 100)).ToString(), "%");
-                    percent.Refresh();
-                    c++;
                 }
+                catch (Exception ex)
+                {
+                    TaskDialog.Show("Error", String.Format("There has been a problem executing this script.{0}{1}", Environment.NewLine, ex.Message));
+                }
+
                 //Finally unhide everything back
                 using (Transaction t = new Transaction(doc, "Hide all"))
                 {
