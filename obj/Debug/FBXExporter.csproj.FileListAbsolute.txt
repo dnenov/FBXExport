@@ -160,3 +160,11 @@ C:\Users\dneno\source\repos\FBXExport\bin\Debug\FBXExporter.bundle\zh-CN\AdWindo
 C:\Users\dneno\source\repos\FBXExport\bin\Debug\FBXExporter.bundle\zh-TW\AdWindows.resources.dll
 C:\Users\dneno\source\repos\FBXExport\obj\Debug\FBXExporter.csproj.AssemblyReference.cache
 C:\Users\dneno\source\repos\FBXExport\obj\Debug\FBXExporter.csproj.CopyComplete
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\bin\Debug\FBXExporter.bundle\FBXExporter.dll
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\bin\Debug\FBXExporter.bundle\FBXExporter.pdb
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\obj\Debug\FBXExporter.csproj.AssemblyReference.cache
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\obj\Debug\FBXExporter.ProgressBarForm.resources
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\obj\Debug\FBXExporter.csproj.GenerateResource.cache
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\obj\Debug\FBXExporter.csproj.CoreCompileInputs.cache
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\obj\Debug\FBXExporter.dll
+C:\Users\DeyanNenov\Documents\GitHub\FBXExport\obj\Debug\FBXExporter.pdb

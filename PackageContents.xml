@@ -38,4 +38,8 @@
 	  <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2023" SeriesMax="R2023" />
 	  <ComponentEntry AppName="FBXExporter" Version="1.2.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
   </Components>
+  <Components Description="2024 parts">
+    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2024" SeriesMax="R2024" />
+    <ComponentEntry AppName="FBXExporter" Version="1.2.0" ModuleName="./Content/windows/FBXExporter.addin" AppDescription="Batch export Geometry Elements to FBX files." />
+  </Components>
 </ApplicationPackage>

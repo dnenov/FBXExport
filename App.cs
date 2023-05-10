@@ -64,6 +64,7 @@ namespace FBXExporter
         static string path = Assembly.GetExecutingAssembly().Location;
         static string contentPath = Path.GetDirectoryName(Path.GetDirectoryName(path)) + "/";
         static string helpFile = "file:///C:/ProgramData/Autodesk/ApplicationPlugins/FBXExporter.bundle/Content/Help/FBX%20Exporter%20_%20Revit%20_%20Autodesk%20App%20Store.html";
+       
         #region Ribbon
         /// <summary>
         /// Use embedded image to load as an icon for the ribbon
@@ -90,8 +91,8 @@ namespace FBXExporter
         private void AddRibbonPanel(UIControlledApplication a)
         {
             // Create a custom ribbon panel
-            String tabName = "Archilizer";
-            String panelName = "Miscellaneous";
+            var tabName = "Archilizer";
+            var panelName = "Miscellaneous";
             try
             {
                 a.CreateRibbonTab(tabName);
@@ -100,15 +101,16 @@ namespace FBXExporter
             {
 
             }
-            RibbonPanel ribbonPanel = (RibbonPanel)TheInternalDoingPart(a, tabName, panelName);
+            var ribbonPanel = (RibbonPanel)TheInternalDoingPart(a, tabName, panelName);
             // Get dll assembly path
-            string thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
+            var thisAssemblyPath = Assembly.GetExecutingAssembly().Location;
             assembly = Assembly.GetExecutingAssembly();
+            var assemblyVersion = assembly.GetName().Version;
 
-            ContextualHelp ch = new ContextualHelp(ContextualHelpType.Url, @helpFile);
+            var ch = new ContextualHelp(ContextualHelpType.Url, @helpFile);
 
             CreatePushButton(ribbonPanel, string.Format("FBX{0}Exporter", Environment.NewLine), thisAssemblyPath, "FBXExporter.Command",
-                string.Format("Exports each element of a 3D view to a separate FBX file.{0}{0}v1.2.0", Environment.NewLine), "FBXExporter.Resources.icon_FBXExport.png", ch);
+                string.Format("Exports each element of a 3D view to a separate FBX file.{0}{0}v{1}", Environment.NewLine, assemblyVersion), "FBXExporter.Resources.icon_FBXExport.png", ch);
 
         }
         private static void CreatePushButton(RibbonPanel ribbonPanel, string name, string path, string command, string tooltip, string icon, ContextualHelp ch)
